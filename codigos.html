@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Códigos - LSPD RevoRP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A192F;
+      --secondary: #1E3A5F;
+      --accent: #D4AF37;
+      --accent-light: #FFD700;
+      --text-light: #E8E8E8;
+      --background: #0D1B2A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--background);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      position: relative;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: all 0.3s;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::before {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-links a.active::before {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--accent);
+      transition: 0.3s;
+    }
+
+    .page-header {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--background) 0%, var(--primary) 100%);
+      position: relative;
+    }
+
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(to top, var(--background), transparent);
+    }
+
+    .page-header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      animation: fadeInDown 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .codes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .code-card {
+      background: var(--secondary);
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .code-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-top: 30px solid var(--accent);
+    }
+
+    .code-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .code-card:nth-child(1) { animation: fadeInUp 0.5s ease-out 0.1s both; }
+    .code-card:nth-child(2) { animation: fadeInUp 0.5s ease-out 0.15s both; }
+    .code-card:nth-child(3) { animation: fadeInUp 0.5s ease-out 0.2s both; }
+    .code-card:nth-child(4) { animation: fadeInUp 0.5s ease-out 0.25s both; }
+    .code-card:nth-child(5) { animation: fadeInUp 0.5s ease-out 0.3s both; }
+    .code-card:nth-child(6) { animation: fadeInUp 0.5s ease-out 0.35s both; }
+    .code-card:nth-child(7) { animation: fadeInUp 0.5s ease-out 0.4s both; }
+    .code-card:nth-child(8) { animation: fadeInUp 0.5s ease-out 0.45s both; }
+    .code-card:nth-child(9) { animation: fadeInUp 0.5s ease-out 0.5s both; }
+    .code-card:nth-child(10) { animation: fadeInUp 0.5s ease-out 0.55s both; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .code-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+      font-weight: 900;
+      float: right;
+      margin-left: 1rem;
+      opacity: 0.3;
+    }
+
+    .code-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .code-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .code-status {
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .code-status.normal { background: #28a745; color: white; }
+    .code-status.warning { background: #ffc107; color: var(--primary); }
+    .code-status.danger { background: #dc3545; color: white; }
+
+    .back-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 1.5rem;
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+      transition: all 0.3s;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .back-btn:hover {
+      transform: scale(1.1);
+      animation: none;
+    }
+
+    footer {
+      background: var(--primary);
+      padding: 2rem;
+      text-align: center;
+      border-top: 2px solid var(--accent);
+    }
+
+    footer p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    footer .server-name {
+      color: var(--accent);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 25, 47, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+      .nav-links.active { transform: translateX(0); }
+      .page-header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-badge">LSPD</div>
+      RevoRP
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="normativa.html">Normativa</a></li>
+      <li><a href="plantilla.html">Plantilla</a></li>
+      <li><a href="civiles.html">Civiles</a></li>
+      <li><a href="codigos.html" class="active">Códigos</a></li>
+      <li><a href="procedimientos.html">Procedimientos</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Códigos de Comunicación</h1>
+    <p>Códigos estándar usados por la policía</p>
+  </div>
+
+  <div class="content">
+    <div class="codes-grid">
+      <div class="code-card">
+        <span class="code-status normal">Controlado</span>
+        <span class="code-number">1</span>
+        <div class="code-title">Código 1</div>
+        <p class="code-desc">Situación controlada - No hay urgencia. Todo en orden, responders pueden relajarse.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status warning">Urgencia Baja</span>
+        <span class="code-number">2</span>
+        <div class="code-title">Código 2</div>
+        <p class="code-desc">Urgencia menor - Responda sin luces ni sirenas. Prioridad pero sin emergencia.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status danger">Urgencia</span>
+        <span class="code-number">3</span>
+        <div class="code-title">Código 3</div>
+        <p class="code-desc">Urgencia - Responda con luces y sirenas. Emergencia en progreso.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status warning">Asistencia</span>
+        <span class="code-number">4</span>
+        <div class="code-title">Código 4</div>
+        <p class="code-desc">Asistencia requerida - Se necesita backup urgently.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status danger">Persecución</span>
+        <span class="code-number">5</span>
+        <div class="code-title">Código 5</div>
+        <p class="code-desc">Persecución en curso - Sospechoso huyendo, todas las unidades respondan.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status normal">Aéreo</span>
+        <span class="code-number">6</span>
+        <div class="code-title">Código 6</div>
+        <p class="code-desc">Solicitud de Helicóptero - Requiere apoyo aéreo inmediata.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status danger">Robo</span>
+        <span class="code-number">7</span>
+        <div class="code-title">Código 7</div>
+        <p class="code-desc">Robo en progreso - Todas las unidades disponibles respondan al место.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status normal">K-9</span>
+        <span class="code-number">8</span>
+        <div class="code-title">Código 8</div>
+        <p class="code-desc">Petición de unidad K-9 - Se necesita perro policía.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status danger">SWAT</span>
+        <span class="code-number">9</span>
+        <div class="code-title">Código 9</div>
+        <p class="code-desc">Solicitud de SWAT - Situación táctica que requiere equipo especial.</p>
+      </div>
+      <div class="code-card">
+        <span class="code-status danger">Amenaza</span>
+        <span class="code-number">10</span>
+        <div class="code-title">Código 10</div>
+        <p class="code-desc">Amenaza de bomba - Todos los respondedores evacúen el área.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">←</a>
+
+  <footer>
+    <p>© 2025 <span class="server-name">LSPD RevoRP</span>. Todos los derechos reservados.</p>
+    <p>Departamento de Policía de Los Santos - RevoRP GTA V Roleplay</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Page load animation
+    document.body.style.opacity = '0';
+    window.addEventListener('load', () => {
+      document.body.style.transition = 'opacity 0.5s';
+      document.body.style.opacity = '1';
+    });
+  </script>
+</body>
+</html>
