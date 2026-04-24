@@ -334,23 +334,86 @@
       font-family: 'Orbitron', sans-serif;
     }
 
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(10, 25, 47, 0.98);
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1rem;
-        transform: translateX(-100%);
-        transition: transform 0.3s;
-      }
-      .nav-links.active { transform: translateX(0); }
-      .page-header h1 { font-size: 2rem; }
-    }
+     @media (max-width: 768px) {
+       .hamburger { display: flex; }
+       .nav-links {
+         position: fixed;
+         top: 70px;
+         left: 0;
+         right: 0;
+         background: rgba(10, 25, 47, 0.98);
+         flex-direction: column;
+         padding: 2rem;
+         gap: 1rem;
+         transform: translateX(-100%);
+         transition: transform 0.3s;
+       }
+       .nav-links.active { transform: translateX(0); }
+       .page-header h1 { font-size: 2rem; }
+     }
+     
+     /* Template content styles */
+     .template-content {
+       background: var(--secondary);
+       padding: 2.5rem;
+       border-radius: 10px;
+       border-left: 4px solid var(--accent);
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+     }
+     
+     .template-content h2 {
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       text-align: center;
+       margin-bottom: 2rem;
+       font-size: 2rem;
+     }
+     
+     .rank-section {
+       margin-bottom: 2rem;
+     }
+     
+     .rank-section h3 {
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       margin-bottom: 1rem;
+       font-size: 1.4rem;
+       display: flex;
+       align-items: center;
+       gap: 0.5rem;
+     }
+     
+     .rank-section p {
+       margin: 0.5rem 0;
+       font-size: 1.1rem;
+       line-height: 1.6;
+     }
+     
+     .rank-section p strong {
+       color: var(--accent-light);
+     }
+     
+     .document-control {
+       background: rgba(10, 25, 47, 0.5);
+       padding: 1.5rem;
+       border-radius: 8px;
+       border: 1px solid rgba(212, 175, 55, 0.3);
+       margin-top: 2rem;
+     }
+     
+     .document-control h3 {
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       margin-bottom: 1rem;
+       font-size: 1.2rem;
+       text-align: center;
+     }
+     
+     .document-control p {
+       margin: 0.5rem 0;
+       font-size: 0.95rem;
+       text-align: center;
+     }
   </style>
 </head>
 <body>
@@ -380,58 +443,56 @@
     <p>Jerarquía y estructura del departamento</p>
   </div>
 
-  <div class="content">
-    <div class="ranks-grid">
-      <div class="rank-card">
-        <div class="rank-icon">C</div>
-        <span class="rank-badge">Nivel 8</span>
-        <h3>Comandante</h3>
-        <p>Mando máximo del departamento</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">DC</div>
-        <span class="rank-badge">Nivel 7</span>
-        <h3>Deputy Chief</h3>
-        <p>Submando del departamento</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Cpt</div>
-        <span class="rank-badge">Nivel 6</span>
-        <h3>Capitán</h3>
-        <p>Comandante de división</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Lt</div>
-        <span class="rank-badge">Nivel 5</span>
-        <h3>Teniente</h3>
-        <p>Oficial de comando medio</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Sgt</div>
-        <span class="rank-badge">Nivel 4</span>
-        <h3>Sargento</h3>
-        <p>Líder de equipo</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Cpl</div>
-        <span class="rank-badge">Nivel 3</span>
-        <h3>Cabo</h3>
-        <p>Oficial de campo senior</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">PO</div>
-        <span class="rank-badge">Nivel 2</span>
-        <h3>Oficial</h3>
-        <p>Patrullero de campo</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">RC</div>
-        <span class="rank-badge">Nivel 1</span>
-        <h3>Recluta</h3>
-        <p>En formación</p>
-      </div>
-    </div>
-  </div>
+   <div class="content">
+     <div class="template-content">
+       <h2>👮 Plantilla REVO LSPD</h2>
+       
+       <div class="rank-section">
+         <h3>🏛️ ESCALA SUPERIOR</h3>
+         <p><strong>Director General:</strong> Tiago Martinez | 2222</p>
+         <p><strong>Subdirector General:</strong> Verta Lápida | 2834</p>
+         <p><strong>Comisario:</strong> Christian Dragomir | 2835</p>
+         <p><strong>Subcomisario:</strong> </p>
+       </div>
+       
+       <div class="rank-section">
+         <h3>⭐ ESCALA DE INSPECCIÓN</h3>
+         <p><strong>Inspector Jefe:</strong> </p>
+         <p><strong>Inspector:</strong> </p>
+       </div>
+       
+       <div class="rank-section">
+         <h3>🛡️ ESCALA DE SUBINSPECCIÓN</h3>
+         <p><strong>Subinspector:</strong> </p>
+         <p>Joel Dragomir | 2898</p>
+         <p>Ancelmo García | 2899</p>
+       </div>
+       
+       <div class="rank-section">
+         <h3>🔰 ESCALA BÁSICA</h3>
+         <p><strong>Oficial III:</strong> Hibiki Lorenzo | 2860</p>
+         <p><strong>Oficial II:</strong> </p>
+         <p><strong>Oficial I:</strong> </p>
+         <p><strong>Policía</strong></p>
+         <p>Ales Perez | 2863</p>
+         <p>Bernat Jimenez | 3080</p>
+         <p>Daniel Sotanni | 2861</p>
+         <p>Iñaki Brown | 2851</p>
+         <p>Jesus Gonzalez | 2856</p>
+         <p>Juan Cuesta | 2853</p>
+         <p>Lukas Martinez | 2854</p>
+         <p>Mamadu Lereles | 2855</p>
+         <p>Miquel Jiménez | 2852</p>
+         <p>Zeus Romero | 2866</p>
+       </div>
+       
+       <div class="document-control">
+         <h3>📌 Control del Documento</h3>
+         <p>Fecha de última edición: 21 / 04 / 2026</p>
+         <p>Responsable de la edición: @SD.General | Verta Lapida | 2834</p>
+       </div>
+     </div>
+   </div>
 
   <a href="index.html" class="back-btn">←</a>
 
