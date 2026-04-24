@@ -191,11 +191,57 @@
       margin: 0 auto;
     }
 
-    .rights-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+     .rights-list {
+       display: flex;
+       flex-direction: column;
+       gap: 1.5rem;
+     }
+     
+     /* New civil rights content styling */
+     .civil-rights-content {
+       background: var(--secondary);
+       padding: 2.5rem;
+       border-radius: 10px;
+       border-left: 4px solid var(--accent);
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+     }
+     
+     .civil-rights-content h2 {
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       text-align: center;
+       margin-bottom: 1.5rem;
+       font-size: 1.8rem;
+     }
+     
+     .civil-rights-content p {
+       text-align: center;
+       font-size: 1.1rem;
+       margin-bottom: 1.5rem;
+       opacity: 0.9;
+     }
+     
+     .civil-rights-content ul {
+       list-style: none;
+       padding: 0;
+       margin: 0;
+     }
+     
+     .civil-rights-content ul li {
+       background: rgba(30, 58, 95, 0.3);
+       margin: 0.8rem 0;
+       padding: 1.2rem;
+       border-radius: 5px;
+       border-left: 3px solid var(--accent);
+       font-size: 1rem;
+       line-height: 1.6;
+       transition: all 0.3s;
+     }
+     
+     .civil-rights-content ul li:hover {
+       background: rgba(30, 58, 95, 0.5);
+       transform: translateX(5px);
+     }
 
     .right-card {
       background: var(--secondary);
@@ -348,46 +394,24 @@
     <p>Derechos que todo ciudadano debe conocer</p>
   </div>
 
-  <div class="content">
-    <div class="rights-list">
-      <div class="right-card">
-        <span class="right-badge">CONSTITUCIONAL</span>
-        <div class="right-icon">⚖</div>
-        <h3>Derecho a Permanecer en Silencio</h3>
-        <p>Todo civil tiene derecho a no incriminarse. Los oficiales deben informar este derecho antes de todo interrogatorio bajo la Quinta Enmienda.</p>
-      </div>
-      <div class="right-card">
-        <span class="right-badge">LEGAL</span>
-        <div class="right-icon">⚖</div>
-        <h3>Derecho a un Abogado</h3>
-        <p>Todo detenido tiene derecho a consultar con un abogado antes y durante el interrogatorio. Si no puede pagar uno, se le asignará un defensor público.</p>
-      </div>
-      <div class="right-card">
-        <span class="right-badge">CONSTITUCIONAL</span>
-        <div class="right-icon">⚖</div>
-        <h3>Derecho a No Ser Registrado Sin Causa</h3>
-        <p>Un oficial no puede registrar a un civil sin causa probable o su consentimiento expreso. Todo registro sin orden requiere justificación legal.</p>
-      </div>
-      <div class="right-card">
-        <span class="right-badge">TRANSPARENCIA</span>
-        <div class="right-icon">⚖</div>
-        <h3>Derecho a Identificación</h3>
-        <p>Todo ciudadano tiene derecho a solicitar la identificación del oficial que lo multaa o detiene. Los oficiales deben portar y mostrar su placa.</p>
-      </div>
-      <div class="right-card">
-        <span class="right-badge">RECLAMO</span>
-        <div class="right-icon">⚖</div>
-        <h3>Derecho a Presentar Quejas</h3>
-        <p>Todo civil tiene derecho a presentar una queja formal contra un oficial por conducta inapropiada o violación de derechos.</p>
-      </div>
-      <div class="right-card">
-        <span class="right-badge">JUDICIAL</span>
-        <div class="right-icon">⚖</div>
-        <h3>Derecho a una Audiencia Judicial</h3>
-        <p>Todo detenido tiene derecho a una audiencia ante un juez en un tiempo razonable. Sin audiencia, no puede ser mantenido bajo custodia.</p>
-      </div>
-    </div>
-  </div>
+   <div class="content">
+     <div class="civil-rights-content">
+       <h2>𝐃𝐄𝐑𝐄𝐂𝐇𝐎𝐒 𝐃𝐄 𝐋𝐎𝐒 𝐂𝐈𝐔𝐃𝐀𝐃𝐀𝐍𝐎𝐒</h2>
+       <p>Usted ha sido detenido por la L.S.P.D.</p>
+       <p>Tiene derecho a:</p>
+       <ul class="rights-list">
+         <li>Guardar silencio.,</li>
+         <li>   Todo lo que diga podrá ser utilizado en su contra. Y tiene derecho a no prestar declaración contra si mismo si así lo desea</li>
+         <li>Conocer los derechos que se le atribuyen,</li>
+         <li>  y el motivo de su detención.</li>
+         <li>Comida, bebida y asistencia médica si lo requiere durante su detención.,</li>
+         <li>Una llamada de no más de 1 minuto,</li>
+         <li>  realizada delante de un agente de la ley.</li>
+         <li>Ser informado de que no tiene derecho a abogado si ha sido detenido por un delito flagrante. (Solo en este caso). Si no tiene uno se le asignará uno de oficio.,</li>
+         <li>¿Ha entendido sus derechos?</li>
+       </ul>
+     </div>
+   </div>
 
   <a href="index.html" class="back-btn">←</a>
 
