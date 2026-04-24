@@ -185,94 +185,68 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .content {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .codes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .code-card {
-      background: var(--secondary);
-      padding: 1.5rem;
-      border-left: 4px solid var(--accent);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .code-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-left: 30px solid transparent;
-      border-top: 30px solid var(--accent);
-    }
-
-    .code-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .code-card:nth-child(1) { animation: fadeInUp 0.5s ease-out 0.1s both; }
-    .code-card:nth-child(2) { animation: fadeInUp 0.5s ease-out 0.15s both; }
-    .code-card:nth-child(3) { animation: fadeInUp 0.5s ease-out 0.2s both; }
-    .code-card:nth-child(4) { animation: fadeInUp 0.5s ease-out 0.25s both; }
-    .code-card:nth-child(5) { animation: fadeInUp 0.5s ease-out 0.3s both; }
-    .code-card:nth-child(6) { animation: fadeInUp 0.5s ease-out 0.35s both; }
-    .code-card:nth-child(7) { animation: fadeInUp 0.5s ease-out 0.4s both; }
-    .code-card:nth-child(8) { animation: fadeInUp 0.5s ease-out 0.45s both; }
-    .code-card:nth-child(9) { animation: fadeInUp 0.5s ease-out 0.5s both; }
-    .code-card:nth-child(10) { animation: fadeInUp 0.5s ease-out 0.55s both; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .code-number {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      color: var(--accent);
-      font-weight: 900;
-      float: right;
-      margin-left: 1rem;
-      opacity: 0.3;
-    }
-
-    .code-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .code-desc {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .code-status {
-      display: inline-block;
-      padding: 0.2rem 0.8rem;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
-
-    .code-status.normal { background: #28a745; color: white; }
-    .code-status.warning { background: #ffc107; color: var(--primary); }
-    .code-status.danger { background: #dc3545; color: white; }
+     .content {
+       padding: 4rem 2rem;
+       max-width: 1200px;
+       margin: 0 auto;
+     }
+ 
+     .codes-content {
+       background: var(--secondary);
+       padding: 2.5rem;
+       border-radius: 10px;
+       border-left: 4px solid var(--accent);
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+       font-family: 'Courier New', monospace;
+       white-space: pre-line;
+       line-height: 1.8;
+     }
+ 
+     .codes-content h2 {
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       text-align: center;
+       margin-bottom: 2rem;
+       font-size: 2rem;
+     }
+ 
+     .codes-content .section-title {
+       color: var(--accent-light);
+       font-family: 'Orbitron', sans-serif;
+       margin: 1.5rem 0 1rem;
+       font-size: 1.5rem;
+       border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+       padding-bottom: 0.5rem;
+     }
+ 
+     .codes-content .separator {
+       text-align: center;
+       margin: 2rem 0;
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       font-size: 1.2rem;
+     }
+ 
+     .codes-content .terminologies {
+       background: rgba(10, 25, 47, 0.5);
+       padding: 1.5rem;
+       border-radius: 8px;
+       border: 1px solid rgba(212, 175, 55, 0.3);
+       margin-top: 2rem;
+     }
+ 
+     .codes-content .terminologies h3 {
+       color: var(--accent);
+       font-family: 'Orbitron', sans-serif;
+       margin-bottom: 1rem;
+       text-align: center;
+     }
+ 
+     .codes-content .terminologies p {
+       margin: 0.5rem 0;
+       font-size: 1rem;
+       text-align: center;
+     }
 
     .back-btn {
       position: fixed;
@@ -361,75 +335,84 @@
     </div>
   </nav>
 
-  <div class="page-header">
-    <h1>Códigos de Comunicación</h1>
-    <p>Códigos estándar usados por la policía</p>
-  </div>
+   <div class="page-header">
+     <h1>📻🔹 𝐂𝐎́𝐃𝐈𝐆𝐎𝐒 𝐃𝐄 𝐑𝐀𝐃𝐈𝐎  -  𝐂𝐎́𝐃𝐈𝐆𝐎𝐒 𝐑𝐀𝐃𝐈𝐀𝐋𝐄𝐍 🔹📻</h1>
+     <p>Códigos de radio y procedimientos operativos estándar</p>
+   </div>
 
-  <div class="content">
-    <div class="codes-grid">
-      <div class="code-card">
-        <span class="code-status normal">Controlado</span>
-        <span class="code-number">1</span>
-        <div class="code-title">Código 1</div>
-        <p class="code-desc">Situación controlada - No hay urgencia. Todo en orden, responders pueden relajarse.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status warning">Urgencia Baja</span>
-        <span class="code-number">2</span>
-        <div class="code-title">Código 2</div>
-        <p class="code-desc">Urgencia menor - Responda sin luces ni sirenas. Prioridad pero sin emergencia.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status danger">Urgencia</span>
-        <span class="code-number">3</span>
-        <div class="code-title">Código 3</div>
-        <p class="code-desc">Urgencia - Responda con luces y sirenas. Emergencia en progreso.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status warning">Asistencia</span>
-        <span class="code-number">4</span>
-        <div class="code-title">Código 4</div>
-        <p class="code-desc">Asistencia requerida - Se necesita backup urgently.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status danger">Persecución</span>
-        <span class="code-number">5</span>
-        <div class="code-title">Código 5</div>
-        <p class="code-desc">Persecución en curso - Sospechoso huyendo, todas las unidades respondan.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status normal">Aéreo</span>
-        <span class="code-number">6</span>
-        <div class="code-title">Código 6</div>
-        <p class="code-desc">Solicitud de Helicóptero - Requiere apoyo aéreo inmediata.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status danger">Robo</span>
-        <span class="code-number">7</span>
-        <div class="code-title">Código 7</div>
-        <p class="code-desc">Robo en progreso - Todas las unidades disponibles respondan al место.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status normal">K-9</span>
-        <span class="code-number">8</span>
-        <div class="code-title">Código 8</div>
-        <p class="code-desc">Petición de unidad K-9 - Se necesita perro policía.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status danger">SWAT</span>
-        <span class="code-number">9</span>
-        <div class="code-title">Código 9</div>
-        <p class="code-desc">Solicitud de SWAT - Situación táctica que requiere equipo especial.</p>
-      </div>
-      <div class="code-card">
-        <span class="code-status danger">Amenaza</span>
-        <span class="code-number">10</span>
-        <div class="code-title">Código 10</div>
-        <p class="code-desc">Amenaza de bomba - Todos los respondedores evacúen el área.</p>
-      </div>
-    </div>
-  </div>
+   <div class="content">
+     <div class="codes-content">
+       <h2>📻🔹 𝐂𝐎́𝐃𝐈𝐆𝐎𝐒 𝐃𝐄 𝐑𝐀𝐃𝐈𝐎  -  𝐂𝐎́𝐃𝐈𝐆𝐎𝐒 𝐑𝐀𝐃𝐈𝐀𝐋𝐄𝐍 🔹📻</h2>
+       
+       <div class="section-title">🔹 Códigos Básicos</div>
+       <p>🔹 Código 1️⃣: Acudir o confirmar el último aviso. (Respuesta vía radio)</p>
+       <p>🔹 Código 2️⃣: Acudir a un aviso de rutina, sin luces ni sirenas.</p>
+       <p>🔹 Código 3️⃣: Acudir a un aviso de rutina, con luces (rotativos).</p>
+       <p>🔹 Código 4️⃣: Acudir a una emergencia, con luces y sirenas.</p>
+       <p>🔹 Código 5️⃣: No solicitamos más apoyo en la zona.</p>
+       <p>🔹 Código 6️⃣: Alejarse de la zona de operación.</p>
+       <p>🔹 Código 7️⃣: Realizamos una pausa (descanso).</p>
+       <p>🔹 Código 9️⃣: Sujeto en búsqueda y captura.</p>
+       <p>🔹 Código 9️⃣ Adam: Sujeto en búsqueda y captura peligroso.</p>
+       <p>🔹 Código 🔟: Silencio absoluto en la radio.</p>
+       <p>🔹 Código 1️⃣2️⃣: Falsa alarma.</p>
+       <p>🔹 Código 3️⃣0️⃣: Enfrentamiento armado (tiroteo).</p>
+       <p>🔹 Código 3️⃣7️⃣: Vehículo reportado como robado.</p>
+       <p>🔹 Código 1️⃣0️⃣0️⃣: Posible bloqueo/intercepción de vehículo en persecución.</p>
+       <p>🔹 Código 1️⃣8️⃣7️⃣: Homicidio o intento de homicidio.</p>
+       <p>🔹 Código 2️⃣0️⃣7️⃣: Secuestro en curso.</p>
+       <p>🔹 Código 2️⃣1️⃣1️⃣: Robo a establecimiento o banco.</p>
+       <p>🔹 Código 2️⃣1️⃣5️⃣: Agresión a una persona.</p>
+       <p>🔹 Código 2️⃣4️⃣0️⃣: Asalto con arma blanca.</p>
+       <p>🔹 Código 2️⃣4️⃣5️⃣: Asalto con arma de fuego.</p>
+       <p>🔹 Código 2️⃣4️⃣7️⃣: Disparos detectados.</p>
+       <p>🔹 Código 2️⃣5️⃣4️⃣ Víctor: Persecución con vehículo.</p>
+       <p>🔹 Código 2️⃣5️⃣4️⃣ Paul: Persecución a pie.</p>
+       <p>🔹 Código 3️⃣2️⃣0️⃣: Venta de sustancias ilegales.</p>
+       <p>🔹 Código 4️⃣5️⃣9️⃣: Allanamiento de morada.</p>
+       <p>🔹 Código 4️⃣8️⃣7️⃣: Robo al banco federal.</p>
+       <p>🔹 Código 4️⃣8️⃣8️⃣: Hurto o robo menor.</p>
+       <p>🔹 Código 5️⃣0️⃣2️⃣: Conducción bajo los efectos de sustancias (alcohol, drogas, medicación…)</p>
+       
+       <div class="separator">━━━━━━━━━━━━━━━━━━━━━━━</div>
+       
+       <div class="section-title">📡 𝐂Ó𝐃𝐈𝐆𝐎𝐒 𝐑𝐀𝐃𝐈𝐀𝐋𝐄𝐍 𝟏𝟎-𝐗 📡</div>
+       <p>🔹 Código 🔟-0️⃣: Precaución, existe una amenaza.</p>
+       <p>🔹 Código 🔟-1️⃣: Agente herido/abatido, solicitamos 6-ADAM.</p>
+       <p>🔹 Código 🔟-2️⃣: Recepción buena.</p>
+       <p>🔹 Código 🔟-3️⃣: Dejar de transmitir.</p>
+       <p>🔹 Código 🔟-4️⃣: Mensaje copiado / afirmativo.</p>
+       <p>🔹 Código 🔟-5️⃣: Negativo.</p>
+       <p>🔹 Código 🔟-8️⃣: En servicio a la espera de asignación.</p>
+       <p>🔹 Código 🔟-9️⃣: Repita el mensaje.</p>
+       <p>🔹 Código 🔟-🔟: Fuera de servicio.</p>
+       <p>🔹 Código 1️⃣0️⃣-1️⃣2️⃣: Transmisión completada, paso a la escucha.</p>
+       <p>🔹 Código 1️⃣0️⃣-1️⃣4️⃣: Persona / Vehículo sospechosa.</p>
+       <p>🔹 Código 1️⃣0️⃣-1️⃣5️⃣: Disturbios.</p>
+       <p>🔹 Código 1️⃣0️⃣-2️⃣3️⃣: Su mensaje queda a la espera, no puede contestarle.</p>
+       <p>🔹 Código 1️⃣0️⃣-2️⃣7️⃣: Realizando trámites en comisaría.</p>
+       <p>🔹 Código 1️⃣0️⃣-3️⃣5️⃣: Traslado a un detenido.</p>
+       <p>🔹 Código 1️⃣0️⃣-3️⃣6️⃣: Informe confidencial.</p>
+       <p>🔹 Código 1️⃣0️⃣-3️⃣7️⃣: Se necesita una grúa en…</p>
+       <p>🔹 Código 1️⃣0️⃣-3️⃣8️⃣: Se necesita una ambulancia en…</p>
+       <p>🔹 Código 1️⃣0️⃣-4️⃣2️⃣: Tráfico cortado en… (por X motivos).</p>
+       <p>🔹 Código 1️⃣0️⃣-6️⃣8️⃣: Recibimos disparos en…</p>
+       <p>🔹 Código 1️⃣0️⃣-8️⃣0️⃣: Asignación de los agentes en comisaría.</p>
+       <p>🔹 Código 1️⃣0️⃣-8️⃣5️⃣: Llegada a la escena / aviso. ETA posterior.</p>
+       <p>🔹 Código 1️⃣0️⃣-9️⃣5️⃣: Parada de tráfico a un vehículo en…</p>
+       <p>🔹 Código 1️⃣0️⃣-9️⃣6️⃣: Control de tráfico en…</p>
+       <p>🔹 Código 1️⃣0️⃣-9️⃣7️⃣: Detención de sospechoso a pie.</p>
+       <p>🔹 Código 1️⃣0️⃣-9️⃣8️⃣: Último aviso / misión completada.</p>
+       
+       <div class="separator">━━━━━━━━━━━━━━━━━━━━━━━</div>
+       
+       <div class="section-title">🎖️ Otras Terminologías 🎖️</div>
+       <p>🚧 Tom Charles ➜ Colisión de tráfico.</p>
+       <p>🚨 Adam Charles ➜ Accidente de tráfico.</p>
+       <p>🩺 Paul Henry ➜ Personas heridas.</p>
+       <p>🔫 Clave Robert ➜ Uso de fuerza letal autorizado.</p>
+     </div>
+   </div>
 
   <a href="index.html" class="back-btn">←</a>
 
