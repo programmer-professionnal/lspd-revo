@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSPD RevoRP - Los Santos Police Department</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A192F;
+      --secondary: #1E3A5F;
+      --accent: #D4AF37;
+      --accent-light: #FFD700;
+      --text-light: #E8E8E8;
+      --text-dark: #1A1A1A;
+      --warning: #FF4444;
+      --background: #0D1B2A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--background);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--accent);
+      transition: 0.3s;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--background) 0%, var(--primary) 50%, var(--secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      box-shadow: 0 0 50px rgba(212, 175, 55, 0.5);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 50px rgba(212, 175, 55, 0.5); }
+      50% { box-shadow: 0 0 80px rgba(212, 175, 55, 0.8); }
+    }
+
+    .hero-badge span {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      letter-spacing: 3px;
+    }
+
+    .hero .server-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      color: var(--primary);
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: var(--accent);
+      margin: 1rem auto 0;
+    }
+
+    /* About Section */
+    #about {
+      background: var(--primary);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+    }
+
+    .about-card {
+      background: var(--secondary);
+      padding: 2rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .about-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* Commands Section */
+    #commands {
+      background: var(--background);
+    }
+
+    .ranks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .rank-card {
+      background: var(--secondary);
+      padding: 2rem;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .rank-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .rank-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .rank-card h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .rank-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Rules Section */
+    #rules {
+      background: var(--primary);
+    }
+
+    .rules-list {
+      list-style: none;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .rules-list li {
+      background: var(--secondary);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .rule-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Application Section */
+    #apply {
+      background: var(--background);
+    }
+
+    .apply-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .apply-info h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .apply-info ul {
+      list-style: none;
+    }
+
+    .apply-info li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .apply-info li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .apply-contact {
+      background: var(--secondary);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .apply-contact h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .apply-contact p {
+      margin-bottom: 1rem;
+    }
+
+    .discord-link {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #5865F2;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+
+    .discord-link:hover {
+      background: #4752C4;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      padding: 2rem;
+      text-align: center;
+      border-top: 2px solid var(--accent);
+    }
+
+    footer p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    footer .server-name {
+      color: var(--accent);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 25, 47, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .server-name {
+        font-size: 1.2rem;
+      }
+
+      .about-content,
+      .apply-content {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-badge">LSPD</div>
+      RevoRP
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Historia</a></li>
+      <li><a href="#commands">Mando</a></li>
+      <li><a href="#rules">Normas</a></li>
+      <li><a href="#apply">Cómo Unirse</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>LSPD</span>
+      </div>
+      <h1>LOS SANTOS<br>POLICE DEPT</h1>
+      <p class="server-name">RevoRP</p>
+      <p class="tagline">Protect & Serve</p>
+      <a href="#apply" class="cta-button">Únete al Departamento</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">Nuestra Historia</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>El Departamento de Policía de Los Santos (LSPD) es la fuerza policial principal del servidor de roleplay RevoRP. Establecido con el propósito de mantener el orden y la justicia en la ciudad ficticia de Los Santos, nuestro departamento se dedica a proporcionar una experiencia de roleplay policial inmersa y profesional.</p>
+        <p>Los oficiales del LSPD trabajan incansablemente para proteger a los ciudadanos, uphold the law, y garantizar que el roleplay en nuestras calles sea seguro y enjoyable para todos.</p>
+      </div>
+      <div class="about-card">
+        <h3>Nuestra Misión</h3>
+        <p>Servir y proteger a la comunidad de RevoRP con integridad, valentía y dedicación. Mantenemos el más alto estándar de roleplay policial mientras fomentamos un ambiente seguro y realista para todos los jugadores.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="commands">
+    <h2 class="section-title">Jerarquía de Mando</h2>
+    <div class="ranks-grid">
+      <div class="rank-card">
+        <div class="rank-icon">C</div>
+        <h3>Comandante</h3>
+        <p>Mando máximo del departamento</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">D</div>
+        <h3>Deputy Chief</h3>
+        <p>Submando del departamento</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">Cpt</div>
+        <h3>Capitán</h3>
+        <p>Comandante de división</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">Lt</div>
+        <h3>Teniente</h3>
+        <p>Oficial de comando medio</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">Sgt</div>
+        <h3>Sargento</h3>
+        <p>Líder de equipo</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">PO</div>
+        <h3>Oficial</h3>
+        <p>Patrullero de campo</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2 class="section-title">Normas del Departamento</h2>
+    <ul class="rules-list">
+      <li>
+        <span class="rule-number">01</span>
+        <span>Respeto absoluto hacia compañeros y ciudadanos en todo momento</span>
+      </li>
+      <li>
+        <span class="rule-number">02</span>
+        <span>Mantener el roleplay en todo momento - no metas/no corruptos</span>
+      </li>
+      <li>
+        <span class="rule-number">03</span>
+        <span>Usar la grabadora (MDA) en todas las intervenciones</span>
+      </li>
+      <li>
+        <span class="rule-number">04</span>
+        <span>Seguir el protocolo de arresto y procedimientos legales</span>
+      </li>
+      <li>
+        <span class="rule-number">05</span>
+        <span>Participar en formaciones y reuniones obligatorias</span>
+      </li>
+      <li>
+        <span class="rule-number">06</span>
+        <span>Comunicarse por radio en todas las operaciones</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="apply">
+    <h2 class="section-title">Cómo Unirse</h2>
+    <div class="apply-content">
+      <div class="apply-info">
+        <h3>Requisitos</h3>
+        <ul>
+          <li>Tener 16 años o más</li>
+          <li>Discord activo</li>
+          <li>Mínimo 50 horas en el servidor</li>
+          <li>Sin antecedentes disciplinarios graves</li>
+          <li>Disponibilidad para formaciones</li>
+          <li>Actitud profesional y respetuosa</li>
+        </ul>
+        <br>
+        <h3>Proceso de Selección</h3>
+        <ul>
+          <li>1. Unirse al Discord del área de reclutamiento</li>
+          <li>2. completar la solicitud</li>
+          <li>3. Entrevista con RH</li>
+          <li>4. Examen teórico</li>
+          <li>5. Formación básica</li>
+        </ul>
+      </div>
+      <div class="apply-contact">
+        <h3>Contacto</h3>
+        <p>Únete a nuestro Discord para más información sobre el proceso de solicitud</p>
+        <br>
+        <a href="https://discord.gg/revorp" class="discord-link" target="_blank">Discord RevoRP</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <span class="server-name">LSPD RevoRP</span>. Todos los derechos reservados.</p>
+    <p>Departamento de Policía de Los Santos - RevoRP GTA V Roleplay</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
