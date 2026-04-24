@@ -223,11 +223,57 @@
       box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
     }
 
-    /* Sections */
-    section {
-      padding: 6rem 2rem;
+    /* Tabs Container */
+    .tabs-container {
+      padding-top: 100px;
+      min-height: 100vh;
+      background: var(--primary);
+    }
+
+    /* Tabs Navigation */
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 2rem 1rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--secondary);
+    }
+
+    .tab-btn {
+      padding: 1rem 2rem;
+      background: transparent;
+      border: 2px solid var(--secondary);
+      color: var(--text-light);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--primary);
+    }
+
+    /* Tab Content */
+    .tab-content {
+      display: none;
+      padding: 3rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
+    }
+
+    .tab-content.active {
+      display: block;
     }
 
     .section-title {
@@ -235,8 +281,7 @@
       font-size: 2rem;
       color: var(--accent);
       text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
+      margin-bottom: 2rem;
     }
 
     .section-title::after {
@@ -248,50 +293,16 @@
       margin: 1rem auto 0;
     }
 
-    /* About Section */
-    #about {
-      background: var(--primary);
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-light);
-    }
-
-    .about-card {
-      background: var(--secondary);
-      padding: 2rem;
-      border-left: 4px solid var(--accent);
-    }
-
-    .about-card h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    /* Commands Section */
-    #commands {
-      background: var(--background);
-    }
-
+    /* Ranks Grid */
     .ranks-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
     }
 
     .rank-card {
       background: var(--secondary);
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
       border: 2px solid transparent;
       transition: all 0.3s;
@@ -299,12 +310,11 @@
 
     .rank-card:hover {
       border-color: var(--accent);
-      transform: translateY(-5px);
     }
 
     .rank-icon {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
       border-radius: 50%;
       display: flex;
@@ -312,7 +322,7 @@
       justify-content: center;
       margin: 0 auto 1rem;
       font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
+      font-size: 1.2rem;
       font-weight: 900;
       color: var(--primary);
     }
@@ -321,104 +331,106 @@
       font-family: 'Orbitron', sans-serif;
       color: var(--accent);
       margin-bottom: 0.5rem;
+      font-size: 1rem;
     }
 
     .rank-card p {
       color: var(--text-light);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
-    /* Rules Section */
-    #rules {
-      background: var(--primary);
-    }
-
+    /* Rules List */
     .rules-list {
       list-style: none;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
     .rules-list li {
       background: var(--secondary);
-      padding: 1.5rem 2rem;
+      padding: 1.2rem 1.5rem;
       margin-bottom: 1rem;
       border-left: 4px solid var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
     }
 
     .rule-number {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
       color: var(--accent);
       font-weight: 700;
+      margin-right: 1rem;
     }
 
-    /* Application Section */
-    #apply {
-      background: var(--background);
-    }
-
-    .apply-content {
+    /* Codes Grid */
+    .codes-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
-    .apply-info h3 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .apply-info ul {
-      list-style: none;
-    }
-
-    .apply-info li {
-      padding: 0.5rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .apply-info li::before {
-      content: '✓';
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    .apply-contact {
+    .code-card {
       background: var(--secondary);
-      padding: 2rem;
-      text-align: center;
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
     }
 
-    .apply-contact h3 {
+    .code-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .code-desc {
+      font-size: 0.95rem;
+    }
+
+    /* Civil Rights */
+    .civil-rights-list {
+      list-style: none;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .civil-rights-list li {
+      background: var(--secondary);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .civil-rights-list h3 {
       font-family: 'Orbitron', sans-serif;
       color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Procedures */
+    .procedures-list {
+      list-style: none;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .procedures-list li {
+      background: var(--secondary);
+      padding: 1.5rem;
       margin-bottom: 1rem;
     }
 
-    .apply-contact p {
+    .procedures-list h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .procedures-list ol {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .procedures-list li {
+      padding: 1.5rem 2rem;
       margin-bottom: 1rem;
-    }
-
-    .discord-link {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #5865F2;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 5px;
-      transition: all 0.3s;
-    }
-
-    .discord-link:hover {
-      background: #4752C4;
     }
 
     /* Footer */
@@ -441,10 +453,7 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
+      .hamburger { display: flex; }
       .nav-links {
         position: fixed;
         top: 70px;
@@ -457,27 +466,9 @@
         transform: translateX(-100%);
         transition: transform 0.3s;
       }
-
-      .nav-links.active {
-        transform: translateX(0);
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero .server-name {
-        font-size: 1.2rem;
-      }
-
-      .about-content,
-      .apply-content {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 4rem 1.5rem;
-      }
+      .nav-links.active { transform: translateX(0); }
+      .hero h1 { font-size: 2rem; }
+      .tab-btn { padding: 0.8rem 1rem; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -488,10 +479,12 @@
       RevoRP
     </a>
     <ul class="nav-links">
-      <li><a href="#about">Historia</a></li>
-      <li><a href="#commands">Mando</a></li>
-      <li><a href="#rules">Normas</a></li>
-      <li><a href="#apply">Cómo Unirse</a></li>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#normativa">Normativa</a></li>
+      <li><a href="#plantilla">Plantilla</a></li>
+      <li><a href="#civiles">Civiles</a></li>
+      <li><a href="#codigos">Códigos</a></li>
+      <li><a href="#procedimientos">Procedimientos</a></li>
     </ul>
     <div class="hamburger">
       <span></span>
@@ -500,7 +493,7 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-badge">
         <span>LSPD</span>
@@ -508,121 +501,208 @@
       <h1>LOS SANTOS<br>POLICE DEPT</h1>
       <p class="server-name">RevoRP</p>
       <p class="tagline">Protect & Serve</p>
-      <a href="#apply" class="cta-button">Únete al Departamento</a>
     </div>
   </section>
 
-  <section id="about">
-    <h2 class="section-title">Nuestra Historia</h2>
-    <div class="about-content">
-      <div class="about-text">
-        <p>El Departamento de Policía de Los Santos (LSPD) es la fuerza policial principal del servidor de roleplay RevoRP. Establecido con el propósito de mantener el orden y la justicia en la ciudad ficticia de Los Santos, nuestro departamento se dedica a proporcionar una experiencia de roleplay policial inmersa y profesional.</p>
-        <p>Los oficiales del LSPD trabajan incansablemente para proteger a los ciudadanos, uphold the law, y garantizar que el roleplay en nuestras calles sea seguro y enjoyable para todos.</p>
-      </div>
-      <div class="about-card">
-        <h3>Nuestra Misión</h3>
-        <p>Servir y proteger a la comunidad de RevoRP con integridad, valentía y dedicación. Mantenemos el más alto estándar de roleplay policial mientras fomentamos un ambiente seguro y realista para todos los jugadores.</p>
+  <div class="tabs-container" id="normativa">
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="normativa">Normativa</button>
+      <button class="tab-btn" data-tab="plantilla">Plantilla</button>
+      <button class="tab-btn" data-tab="civiles">Derecho Civiles</button>
+      <button class="tab-btn" data-tab="codigos">Códigos</button>
+      <button class="tab-btn" data-tab="procedimientos">Procedimientos</button>
+    </div>
+
+    <!-- Normativa Tab -->
+    <div class="tab-content active" id="tab-normativa">
+      <h2 class="section-title">Normativa del Departamento</h2>
+      <ul class="rules-list">
+        <li><span class="rule-number">01</span> Respeto absoluto hacia compañeros y ciudadanos en todo momento</li>
+        <li><span class="rule-number">02</span> Mantener el roleplay en todo momento - no metas/no corruptos</li>
+        <li><span class="rule-number">03</span> Usar la grabadora (MDA) en todas las intervenciones</li>
+        <li><span class="rule-number">04</span> Seguir el protocolo de arresto y procedimientos legales</li>
+        <li><span class="rule-number">05</span> Participar en formaciones y reuniones obligatorias</li>
+        <li><span class="rule-number">06</span> Comunicarse por radio en todas las operaciones</li>
+        <li><span class="rule-number">07</span> portar el uniforme completo durante el servicio</li>
+        <li><span class="rule-number">08</span> Reportar cualquier incidente grave inmediatamente</li>
+        <li><span class="rule-number">09</span> No abuse de autoridad fuera del roleplay</li>
+        <li><span class="rule-number">10</span> Mantener la calma en situaciones de estrés</li>
+      </ul>
+    </div>
+
+    <!-- Plantilla Tab -->
+    <div class="tab-content" id="tab-plantilla">
+      <h2 class="section-title">Plantilla de Rangos</h2>
+      <div class="ranks-grid">
+        <div class="rank-card">
+          <div class="rank-icon">C</div>
+          <h3>Comandante</h3>
+          <p>Mando máximo del departamento</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">DC</div>
+          <h3>Deputy Chief</h3>
+          <p>Submando del departamento</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">Cpt</div>
+          <h3>Capitán</h3>
+          <p>Comandante de división</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">Lt</div>
+          <h3>Teniente</h3>
+          <p>Oficial de comando medio</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">Sgt</div>
+          <h3>Sargento</h3>
+          <p>Líder de equipo</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">Cpl</div>
+          <h3>Cabo</h3>
+          <p>Oficial de campo senior</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">PO</div>
+          <h3>Oficial</h3>
+          <p>Patrullero de campo</p>
+        </div>
+        <div class="rank-card">
+          <div class="rank-icon">RC</div>
+          <h3>Recluta</h3>
+          <p>En formación</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section id="commands">
-    <h2 class="section-title">Jerarquía de Mando</h2>
-    <div class="ranks-grid">
-      <div class="rank-card">
-        <div class="rank-icon">C</div>
-        <h3>Comandante</h3>
-        <p>Mando máximo del departamento</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">D</div>
-        <h3>Deputy Chief</h3>
-        <p>Submando del departamento</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Cpt</div>
-        <h3>Capitán</h3>
-        <p>Comandante de división</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Lt</div>
-        <h3>Teniente</h3>
-        <p>Oficial de comando medio</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">Sgt</div>
-        <h3>Sargento</h3>
-        <p>Líder de equipo</p>
-      </div>
-      <div class="rank-card">
-        <div class="rank-icon">PO</div>
-        <h3>Oficial</h3>
-        <p>Patrullero de campo</p>
+    <!-- Derecho Civiles Tab -->
+    <div class="tab-content" id="tab-civiles">
+      <h2 class="section-title">Derechos de los Civiles</h2>
+      <ul class="civil-rights-list">
+        <li>
+          <h3>Derecho a permanecer en silencio</h3>
+          <p>Todo civil tiene derecho a no incriminarse. Los oficiales deben informar este derecho antes de todo interrogatorio.</p>
+        </li>
+        <li>
+          <h3>Derecho a un abogado</h3>
+          <p>Todo detenido tiene derecho a consultar con un abogado antes y durante el interrogatorio.</p>
+        </li>
+        <li>
+          <h3>Derecho a no ser registrado sin causa</h3>
+          <p>Un oficial no puede registrar a un civil sin causa probable o su consentimiento expreso.</p>
+        </li>
+        <li>
+          <h3>Derecho a identificación</h3>
+          <p>Todo ciudadano tiene derecho a solicitar la identificación del oficial que lo multaa o detiene.</p>
+        </li>
+        <li>
+          <h3>Derecho a presentar quejas</h3>
+          <p>Todo civil tiene derecho a presentar una queja formal contra un oficial por conducta inapropiada.</p>
+        </li>
+        <li>
+          <h3>Derecho a una audiencia judicial</h3>
+          <p>Todo detenido tiene derecho a una audiencia ante un juez en un tiempo razonable.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Códigos Tab -->
+    <div class="tab-content" id="tab-codigos">
+      <h2 class="section-title">Códigos de Comunicación</h2>
+      <div class="codes-grid">
+        <div class="code-card">
+          <div class="code-title">Código 1</div>
+          <p class="code-desc">Situación controlada - No hay urgencia</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 2</div>
+          <p class="code-desc">Urgencia menor - Responda sin luces ni sirenas</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 3</div>
+          <p class="code-desc">Urgencia - Responda con luces y sirenas</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 4</div>
+          <p class="code-desc">Asistencia requerida - Se necesita backup</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 5</div>
+          <p class="code-desc">Persecución en curso</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 6</div>
+          <p class="code-desc">Solicitud de Helicóptero</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 7</div>
+          <p class="code-desc">Robo en progreso</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 8</div>
+          <p class="code-desc">Petición de unidad K-9</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 9</div>
+          <p class="code-desc">Solicitud de SWAT</p>
+        </div>
+        <div class="code-card">
+          <div class="code-title">Código 10</div>
+          <p class="code-desc">Amenaza de bomba</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section id="rules">
-    <h2 class="section-title">Normas del Departamento</h2>
-    <ul class="rules-list">
-      <li>
-        <span class="rule-number">01</span>
-        <span>Respeto absoluto hacia compañeros y ciudadanos en todo momento</span>
-      </li>
-      <li>
-        <span class="rule-number">02</span>
-        <span>Mantener el roleplay en todo momento - no metas/no corruptos</span>
-      </li>
-      <li>
-        <span class="rule-number">03</span>
-        <span>Usar la grabadora (MDA) en todas las intervenciones</span>
-      </li>
-      <li>
-        <span class="rule-number">04</span>
-        <span>Seguir el protocolo de arresto y procedimientos legales</span>
-      </li>
-      <li>
-        <span class="rule-number">05</span>
-        <span>Participar en formaciones y reuniones obligatorias</span>
-      </li>
-      <li>
-        <span class="rule-number">06</span>
-        <span>Comunicarse por radio en todas las operaciones</span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="apply">
-    <h2 class="section-title">Cómo Unirse</h2>
-    <div class="apply-content">
-      <div class="apply-info">
-        <h3>Requisitos</h3>
-        <ul>
-          <li>Tener 16 años o más</li>
-          <li>Discord activo</li>
-          <li>Mínimo 50 horas en el servidor</li>
-          <li>Sin antecedentes disciplinarios graves</li>
-          <li>Disponibilidad para formaciones</li>
-          <li>Actitud profesional y respetuosa</li>
-        </ul>
-        <br>
-        <h3>Proceso de Selección</h3>
-        <ul>
-          <li>1. Unirse al Discord del área de reclutamiento</li>
-          <li>2. completar la solicitud</li>
-          <li>3. Entrevista con RH</li>
-          <li>4. Examen teórico</li>
-          <li>5. Formación básica</li>
-        </ul>
-      </div>
-      <div class="apply-contact">
-        <h3>Contacto</h3>
-        <p>Únete a nuestro Discord para más información sobre el proceso de solicitud</p>
-        <br>
-        <a href="https://discord.gg/revorp" class="discord-link" target="_blank">Discord RevoRP</a>
-      </div>
+    <!-- Procedimientos Tab -->
+    <div class="tab-content" id="tab-procedimientos">
+      <h2 class="section-title">Procedimientos</h2>
+      <ul class="procedures-list">
+        <li>
+          <h3>Procedimiento de Detención</h3>
+          <ol>
+            <li>Identificarse como oficial de policía</li>
+            <li>Informar al civil la causa de la detención</li>
+            <li>Informar derechos Miranda</li>
+            <li>Proceder con el arresto si es necesario</li>
+            <li>Registrar y esposar al detenido</li>
+            <li>Transportar a la estación para procesamiento</li>
+          </ol>
+        </li>
+        <li>
+          <h3>Procedimiento de Registro</h3>
+          <ol>
+            <li>Solicitar consentimiento para registro</li>
+            <li>Si se niega, verificar causa probable</li>
+            <li>Proceder con registro controlado</li>
+            <li>Documentar todos los objetos encontrados</li>
+            <li>Registrar evidencia adecuadamente</li>
+          </ol>
+        </li>
+        <li>
+          <h3>Procedimiento de Tráfico</h3>
+          <ol>
+            <li>Activarsirenas para indicate stop</li>
+            <li>Esperar a que el vehículo se detenga completamente</li>
+            <li>Aproximarse con precaución</li>
+            <li> Solicitar licencia y registro</li>
+            <li>Emitir citación si es necesario</li>
+          </ol>
+        </li>
+        <li>
+          <h3>Procedimiento de Escena de Crimen</h3>
+          <ol>
+            <li>Asegurar el perímetro</li>
+            <li>Preservar evidencia</li>
+            <li>Documentar la escena con fotos</li>
+            <li>Recolectar evidencia física</li>
+            <li>Entregar a detectives para investigación</li>
+          </ol>
+        </li>
+      </ul>
     </div>
-  </section>
+  </div>
 
   <footer>
     <p>© 2025 <span class="server-name">LSPD RevoRP</span>. Todos los derechos reservados.</p>
@@ -640,6 +720,20 @@
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+      });
+    });
+
+    // Tab functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
       });
     });
   </script>
